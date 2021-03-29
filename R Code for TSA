@@ -1,0 +1,27 @@
+?data
+Data_1995 <- c(153,189,221,215,302,223,201,173,121,106,86,87,108)
+Data_1996 <- c(133,177,241,228,283,255,238,164,128,108,87,74,95)
+Data_1997 <- c(145,200,187,201,292,220,233,172,119,81,65,76,74)
+Data_1998 <- c(111,170,243,178,248,202,163,139,120,96,95,53,94)
+Independent_Variable <- c(1995,1996,1997,1998)
+Dependent_Variable <- c(Data_1995,Data_1996,Data_1997,Data_1998)
+plot(Independent_Variable,Dependent_Variable)
+plot(Data_1995,Data_1996,Data_1997,Data_1998)
+?ts
+Total_Data <- c(153,189,221,215,302,223,201,173,121,106,86,87,108,133,177,241,228,283,255,238,164,128,108,87,74,95,145,200,187,201,292,220,233,172,119,81,65,76,74,111,170,243,178,248,202,163,139,120,96,95,53,94)
+Time_Series_Model_1<- ts(data = Total_Data,start = c(1995,1),frequency = 13,)
+plot(Time_Series_Model_1, xlab="Years", ylab="Sales")
+?stl
+stl(Time_Series_Model_1,s.window = "periodic")
+Total_Data_2 <- c(1.6,0.8,1.2,0.5,0.9,1.1,1.1,0.6,1.5,0.8,0.9,1.2,0.5,1.3,0.8,1.2)
+plot(Total_Data_2)
+Time_Series_Model_2 <- ts(data=Total_Data_2, frequency = 16)
+plot(Time_Series_Model_2)
+?acf
+acf(Time_Series_Model_2,lag.max = 10*log10(16),type = "correlation",plot = TRUE)
+acf(Total_Data_2)
+acf(Time_Series_Model_2)
+New_acf <- acf(Time_Series_Model_2[1])
+New_acf
+New_acf <- acf(Time_Series_Model_2)
+New_acf
